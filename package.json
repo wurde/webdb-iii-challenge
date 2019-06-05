@@ -1,20 +1,31 @@
 {
   "name": "webdb-iii-challenge",
   "version": "1.0.0",
-  "description": "## Topics",
-  "main": "index.js",
+  "description": "Web DB III Challenge",
+  "main": "server/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/app.js",
+    "start:dev": "nodemon server/app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wurde/webdb-iii-challenge.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Andy Bettisworth",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wurde/webdb-iii-challenge/issues"
   },
-  "homepage": "https://github.com/wurde/webdb-iii-challenge#readme"
+  "homepage": "https://github.com/wurde/webdb-iii-challenge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "knex": "^0.17.3",
+    "sqlite3": "^4.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
 }
