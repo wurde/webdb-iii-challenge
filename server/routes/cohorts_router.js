@@ -6,6 +6,7 @@
 
 const express = require('express')
 const Cohort = require('../models/Cohort')
+const Student = require('../models/Student')
 
 /**
  * Define router
@@ -81,6 +82,22 @@ router.route('/:id')
       } else {
         res.status(404).json({ error: { message: 'Record not found.' } })
       }
+    } catch (err) {
+      console.error(err)
+      res.status(500).json({ error: { message: 'Server error.' } })
+    }
+  })
+
+/**
+ * Routes
+ *   GET /cohorts/:id/students
+ */
+
+router.route('/:id/students')
+  .get(async (req, res) => {
+    try {
+      const students = await Student.allByCohort(req.params.id)
+      res.status(200).json(students)
     } catch (err) {
       console.error(err)
       res.status(500).json({ error: { message: 'Server error.' } })

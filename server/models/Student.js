@@ -15,6 +15,10 @@ class Student {
     return await db_client('students')
   }
 
+  static async allByCohort(cohort_id) {
+    return await db_client('students').where({ cohort_id })
+  }
+
   static async find(id) {
     return db_client('students').where({ id }).first()
   }
