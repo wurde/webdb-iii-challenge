@@ -20,7 +20,8 @@ class Student {
   }
 
   static async find(id) {
-    return db_client('students').where({ id }).first()
+    return db_client.select('students.id', 'students.name', 'cohorts.name AS cohort_name').from('students')
+      .leftJoin('cohorts', 'students.cohort_id', 'cohorts.id')
   }
 
   static async create(role) {
