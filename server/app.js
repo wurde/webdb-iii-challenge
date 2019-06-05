@@ -33,6 +33,8 @@ app.use(express.json())
  */
 
 app.use('/', require('./routes/root_router'))
+app.use('/cohorts', require('./routes/cohorts_router'))
+app.use('/students', require('./routes/students_router'))
 
 /**
  * Start server
