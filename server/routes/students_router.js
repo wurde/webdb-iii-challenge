@@ -65,7 +65,7 @@ router.route('/:id')
 
         res.status(200).json(student)
       } else {
-        res.status(404).json({ message: 'Records not found' })
+        res.status(404).json({ error: { message: 'Record not found.' } })
       }
     } catch (err) {
       console.error(err)
@@ -77,9 +77,9 @@ router.route('/:id')
       const count = await Student.remove(req.params.id)
 
       if (count > 0) {
-        res.status(204).end()
+        res.sendStatus(204)
       } else {
-        res.status(404).json({ message: 'Records not found' })
+        res.status(404).json({ error: { message: 'Record not found.' } })
       }
     } catch (err) {
       console.error(err)
