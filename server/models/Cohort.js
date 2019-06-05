@@ -31,7 +31,7 @@ class Cohort {
 
   static async remove(id) {
     return await db_client('cohorts')
-      .where({ id: req.params.id })
+      .where({ id: id })
       .del()
   }
 }

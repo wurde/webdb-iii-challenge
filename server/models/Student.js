@@ -31,7 +31,7 @@ class Student {
 
   static async remove(id) {
     return await db_client('students')
-      .where({ id: req.params.id })
+      .where({ id: id })
       .del()
   }
 }
